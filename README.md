@@ -1,9 +1,9 @@
 # Build a recommendation system with TensorFlow and Keras
 It is a step-by-step tutorial on developing a practical recommendation system (`retrieval` and `ranking` tasks) using [TensorFlow Recommenders](https://www.tensorflow.org/recommenders) and [Keras](https://keras.io/) and deploy it using [TensorFlow Serving](https://www.tensorflow.org/tfx/guide/serving).
 
-Here, you can find an introduction to the information retrieval and the recommendation systems, then you can explore [the Jupyter notebook](https://github.com/xei/recommender_system_tutorial/blob/main/recommender_system_tutorial.ipynb) and run it in [Google Colab](https://colab.research.google.com/github/xei/recommender_system_tutorial/blob/main/recommender_system_tutorial.ipynb) in order to study the code.
+Here, you can find an introduction to the information retrieval and the recommendation systems, then you can explore [the Jupyter notebook](https://github.com/feihu618/recommender_system_tutorial/blob/main/recommender_system_tutorial.ipynb) and run it in [Google Colab](https://colab.research.google.com/github/feihu618/recommender_system_tutorial/blob/main/recommender_system_tutorial.ipynb) in order to study the code.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/xei/recommender_system_tutorial/blob/main/recommender_system_tutorial.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/feihu618/recommender_system_tutorial/blob/main/recommender_system_tutorial.ipynb)
 
 In the notebook, we load [MovieLens dataset](https://grouplens.org/datasets/movielens/) using [TesorFlow Datasets](https://www.tensorflow.org/datasets), preprocess its features using [Keras preprocessing layers](https://keras.io/guides/preprocessing_layers/), build the `retrieval` and `ranking` tasks using [TensorFlow Recommenders](https://www.tensorflow.org/recommenders) and index and search for similar items using [Spotify Annoy](https://github.com/spotify/annoy).
 
@@ -19,7 +19,7 @@ However, users prefer to see a handful shortlist of likely items instead of stru
 A recommedation system can retrieve, filter and recommend best personalized results for the user - results which the user is likely to buy. So it is one of the major requirements of modern businesses in order to increase their `conversion rate`. On September 21, 2009, Netflix gave a grand prize of $1,000,000 to a team which bested Netflix's own algorithm for predicting ratings by 10.06%. [[2]](https://web.archive.org/web/20090924184639/http://www.netflixprize.com/community/viewtopic.php?id=1537)
 
 <p align="center">
-  <img width="634" height="416" src="https://raw.githubusercontent.com/xei/recommender-system-tutorial/main/assets/netflix_prize.jpeg">
+  <img width="634" height="416" src="https://raw.githubusercontent.com/feihu618/recommender-system-tutorial/main/assets/netflix_prize.jpeg">
 </p>
 
 A recommendation system ia a system that gives a `query (context)` which is what we know about the liking list, and filter the corpus (full catalog of items) to a shortlist of `candidates` (items, documents). A query (context) can be a ***user id***, ***user's geographical location*** or ***user's history of previous purchases*** and the resulting candidates can be some new items that we guess are interesting for the user.
@@ -27,7 +27,7 @@ A recommendation system ia a system that gives a `query (context)` which is what
 The query can also be an ***item id***, ***its image*** or ***its textual description*** and the candidates can be some similar or related items from the corpus.
 <p>&nbsp;</p>
 <p align="center">
-  <img width="556" height="82" src="https://raw.githubusercontent.com/xei/recommender-system-tutorial/main/assets/recsys_io.png">
+  <img width="556" height="82" src="https://raw.githubusercontent.com/feihu618/recommender-system-tutorial/main/assets/recsys_io.png">
 </p>
 <p>&nbsp;</p>
 
@@ -38,18 +38,18 @@ In practice, dealing with a large corpus and filter it to a shortlist is an intr
 3. Re-ranking or optimazation or ...
 
 <p align="center">
-  <img width="700" height="394" src="https://raw.githubusercontent.com/xei/recommender-system-tutorial/main/assets/retrieval_ranking.png">
+  <img width="700" height="394" src="https://raw.githubusercontent.com/feihu618/recommender-system-tutorial/main/assets/retrieval_ranking.png">
 </p>
 
 <p align="center">
-  <img width="700" height="394" src="https://raw.githubusercontent.com/xei/recommender-system-tutorial/main/assets/deepmind_forgoogle_recsys.png">
+  <img width="700" height="394" src="https://raw.githubusercontent.com/feihu618/recommender-system-tutorial/main/assets/deepmind_forgoogle_recsys.png">
 </p>
 
 ### Content-based Filtering vs Collaborative Filtering
 Filtering items is based on similarities. we can filter the list based on similar candidates (`content-based filtering`) or based on the similarity between queries and candidates (`collaborative filtering`). Collaborative filtering algorithms usually perform better than content-based methods.
 
 <p align="center">
-  <img width="700" height="330" src="https://raw.githubusercontent.com/xei/recommender-system-tutorial/main/assets/cbf_cf.png">
+  <img width="700" height="330" src="https://raw.githubusercontent.com/feihu618/recommender-system-tutorial/main/assets/cbf_cf.png">
 </p>
 
 ### Representation of a query or a candidate
@@ -71,7 +71,7 @@ These obviouse features can be `numerical variables`, `categorical variables`, `
 `Matrix Factorization` (MF) is a classic collaborative filtering method to learn some `latent factors` (latent features) from `user_id`, `item_id` and `rating` features and represent **users** and **items** by latent (embedding) vectors.
 
 <p align="center">
-  <img width="826" height="398" src="https://raw.githubusercontent.com/xei/recommender-system-tutorial/main/assets/mf.png">
+  <img width="826" height="398" src="https://raw.githubusercontent.com/feihu618/recommender-system-tutorial/main/assets/mf.png">
 </p>
 
 Matrix Factorization method only uses `user_id` and `candidate_id` features collaboratively to learn the `latent features`. In fact it doesn't care about other side-features like `candidate_description`, `price`, `user_comment`, etc.
@@ -79,7 +79,7 @@ Matrix Factorization method only uses `user_id` and `candidate_id` features coll
 To involve side-features as well as ids while learning latent features (embeddings), we can use deep neural network (DNN) architectures like `softmax` or `two-tower` neural models.
 
 <p align="center">
-  <img width="540" height="340" src="https://raw.githubusercontent.com/xei/recommender-system-tutorial/main/assets/tensorflow_two_tower.gif">
+  <img width="540" height="340" src="https://raw.githubusercontent.com/feihu618/recommender-system-tutorial/main/assets/tensorflow_two_tower.gif">
 </p>
 
 YouTube two-tower neural model uses side-features to represent queries and candidates in an abstract high-dimentional embedding vector.
@@ -108,7 +108,7 @@ This dataset contains data of 1,682 movies rated in the ***movielens/100k-rating
 
 <table class="tfo-notebook-buttons" align="left">
     <td>
-    <a target="_blank" href="https://github.com/xei/recommender_system_tutorial/blob/main/recommender_system_tutorial.ipynb"><img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" /> View the code on GitHub</a>
+    <a target="_blank" href="https://github.com//recommender_system_tutorial/blob/main/recommender_system_tutorial.ipynb"><img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" /> View the code on GitHub</a>
   </td>
    
   <td>
